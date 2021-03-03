@@ -34,5 +34,3 @@ burn:
 .PHONY: clean
 clean:
 	rm -r $(BUILD_FOLDER)
-
-all: blink
