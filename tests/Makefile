@@ -35,7 +35,11 @@ burn:
 
 .PHONY: clean
 clean:
-	cd $(BUILD_FOLDER)
-	rm *.asm *.lst *.rel *.rst *.sym *.adb *.map *.lk
-
-
+	rm $(BUILD_FOLDER)*.asm
+	rm $(BUILD_FOLDER)*.lst
+	rm $(BUILD_FOLDER)*.rel
+	rm $(BUILD_FOLDER)*.rst
+	rm $(BUILD_FOLDER)*.sym
+	rm $(BUILD_FOLDER)*.adb
+	rm $(BUILD_FOLDER)*.map
+	rm $(BUILD_FOLDER)*.lk
