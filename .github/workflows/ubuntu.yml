@@ -1,4 +1,4 @@
-name: ubuntu
+name: ubuntu (4.0.0)
 
 on:
   push:
@@ -31,7 +31,9 @@ jobs:
 
       - name: Install sdcc
         run: |
-          sudo apt install -y sdcc
+          wget https://sourceforge.net/projects/sdcc/files/sdcc-linux-amd64/4.0.0/sdcc-4.0.0-amd64-unknown-linux2.5.tar.bz2
+          tar -xf sdcc-4.0.0-amd64-unknown-linux2.5.tar.bz2
+          echo `pwd`/sdcc-4.0.0/bin >> $GITHUB_PATH
 
       - name: Build
         working-directory: tests
