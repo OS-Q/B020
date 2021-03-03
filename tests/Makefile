@@ -36,7 +36,6 @@ burn:
 .PHONY: clean
 clean:
 	cd $(BUILD_FOLDER)
-	shopt -s extglob
-	rm !(*ihx)
+	rm *.asm *.lst *.rel *.rst *.sym *.adb *.map *.lk
 
 
