@@ -27,5 +27,5 @@ jobs:
         echo `pwd`/sdcc-4.0.0/bin >> $GITHUB_PATH
 
     - name: Build
-      run: make
+      run: make build
       working-directory: tests

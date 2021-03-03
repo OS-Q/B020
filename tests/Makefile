@@ -12,6 +12,8 @@ STM8FLASH_FOLDER = $(HOME)/tools/stm8flash/
 DEBUGGER = stlinkv2
 FLASH_TARGET = stm8s003?3
 
+build: blink tim2 delay
+
 .PHONY: blink
 blink:
 	mkdir -p $(BUILD_FOLDER)
