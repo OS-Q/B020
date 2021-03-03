@@ -35,6 +35,7 @@ burn:
 
 .PHONY: clean
 clean:
-	rm !($(BUILD_FOLDER)*.ihx)
+	cd $(BUILD_FOLDER)
+	rm !(*.ihx)
 
 
