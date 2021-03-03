@@ -36,6 +36,6 @@ burn:
 .PHONY: clean
 clean:
 	cd $(BUILD_FOLDER)
-	rm !(*.ihx)
+	rm `ls | grep -v "*.ihx" `
 
 
