@@ -19,22 +19,26 @@ jobs:
       fail-fast: false
       matrix:
         project:
-          - 'blink'
           - 'tim2'
+          - 'blink'
           - 'delay'
 
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v2
-      with:
-        submodules: true
+      - name: Checkout code
+        uses: actions/checkout@v2
+        with:
+          submodules: true
 
-    - name: Install sdcc
-      run: |
-        sudo apt update
-        sudo apt install -y sdcc
+      - name: Install sdcc
+        run: |
+          sudo apt install -y sdcc
 
-    - name: Build
-      working-directory: tests
-      run: |
-        make ${{ matrix.project }}
+      - name: Build
+        working-directory: tests
+        run: |
+          make ${{ matrix.project }}
+
+      - uses: actions/upload-artifact@v2
+        with:
+          name: ubuntu-sdcc-build
+          path: tests/bin

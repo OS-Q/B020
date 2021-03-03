@@ -17,17 +17,17 @@ build: blink tim2 delay
 .PHONY: blink
 blink:
 	mkdir -p $(BUILD_FOLDER)
-	sdcc blink.c $(LIBRARY) $(COMPILER_TARGET) $(OUTPUT_FORMAT) -o$(BUILD_FOLDER)out.ihx
+	sdcc blink.c $(LIBRARY) $(COMPILER_TARGET) $(OUTPUT_FORMAT) -o$(BUILD_FOLDER)blink.ihx
 
 .PHONY: tim2
 tim2:
 	mkdir -p $(BUILD_FOLDER)
-	sdcc tim2_interrupt.c $(LIBRARY) $(COMPILER_TARGET) $(OUTPUT_FORMAT) -o$(BUILD_FOLDER)out.ihx
+	sdcc tim2_interrupt.c $(LIBRARY) $(COMPILER_TARGET) $(OUTPUT_FORMAT) -o$(BUILD_FOLDER)tim2.ihx
 
 .PHONY: t2delay
 delay:
 	mkdir -p $(BUILD_FOLDER)
-	sdcc tim2_delay.c $(LIBRARY) $(COMPILER_TARGET) $(OUTPUT_FORMAT) -o$(BUILD_FOLDER)out.ihx
+	sdcc tim2_delay.c $(LIBRARY) $(COMPILER_TARGET) $(OUTPUT_FORMAT) -o$(BUILD_FOLDER)delay.ihx
 
 .PHONY: burn
 burn:

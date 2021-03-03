@@ -1,5 +1,9 @@
 #include "stm8s003x3.h"
 
+typedef unsigned char     uint8_t;
+typedef unsigned short    uint16_t;
+typedef unsigned long     uint32_t;
+
 #define LED_PORT PORTC
 #define LED_PIN  b3
 

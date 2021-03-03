@@ -15,17 +15,32 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        project:
+          - 'tim2'
+          - 'blink'
+          - 'delay'
 
     steps:
-    - name: Check out
-      uses: actions/checkout@v2
+      - name: Check out
+        uses: actions/checkout@v2
+        with:
+          submodules: true
 
-    - name: Install
-      run: |
-        wget http://182.61.61.133/dl/sdcc/sdcc-4.1.0-rc1-amd64-unknown-linux2.5.tar.bz2
-        tar -xf sdcc-4.1.0-rc1-amd64-unknown-linux2.5.tar.bz2
-        echo `pwd`/sdcc/bin >> $GITHUB_PATH
+      - name: Install
+        run: |
+          wget http://182.61.61.133/dl/sdcc/sdcc-4.1.0-rc1-amd64-unknown-linux2.5.tar.bz2
+          tar -xf sdcc-4.1.0-rc1-amd64-unknown-linux2.5.tar.bz2
+          echo `pwd`/sdcc/bin >> $GITHUB_PATH
 
-    - name: Build
-      run: make
-      working-directory: tests
+      - name: Build
+        working-directory: tests
+        run: |
+          make ${{ matrix.project }}
+
+      - uses: actions/upload-artifact@v2
+        with:
+          name: ubuntu-sdcc-4.1.0
+          path: tests/bin
