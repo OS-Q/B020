@@ -40,6 +40,5 @@ clean:
 	rm $(BUILD_FOLDER)*.rel
 	rm $(BUILD_FOLDER)*.rst
 	rm $(BUILD_FOLDER)*.sym
-	rm $(BUILD_FOLDER)*.adb
 	rm $(BUILD_FOLDER)*.map
 	rm $(BUILD_FOLDER)*.lk
