@@ -1,4 +1,4 @@
-name: ubuntu (4.1.0)
+name: ubuntu tests
 
 on:
   push:
@@ -39,8 +39,9 @@ jobs:
         working-directory: tests
         run: |
           make ${{ matrix.project }}
+          make clean
 
       - uses: actions/upload-artifact@v2
         with:
-          name: ubuntu-sdcc-4.1.0
-          path: tests/bin
+          name: ubuntu-sdcc-test
+          path: tests/build

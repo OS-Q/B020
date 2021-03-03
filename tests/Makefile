@@ -1,5 +1,5 @@
 # Environment Specific Flags
-BUILD_FOLDER = $(CURDIR)/bin/
+BUILD_FOLDER = $(CURDIR)/build/
 
 
 # SDCC Compiler Specific Flags
@@ -35,4 +35,13 @@ burn:
 
 .PHONY: clean
 clean:
-	rm -r $(BUILD_FOLDER)
+	rm $(BUILD_FOLDER)*.asm
+	rm $(BUILD_FOLDER)*.lst
+	rm $(BUILD_FOLDER)*.mem
+	rm $(BUILD_FOLDER)*.rel
+	rm $(BUILD_FOLDER)*.rst
+	rm $(BUILD_FOLDER)*.sym
+	rm $(BUILD_FOLDER)*.adb
+	rm $(BUILD_FOLDER)*.map
+	rm $(BUILD_FOLDER)*.lk
+
