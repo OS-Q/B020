@@ -15,17 +15,25 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        project:
+          - 'blink'
+          - 'tim2'
+          - 'delay'
 
-    steps:
-    - name: Check out
+    - name: Checkout code
       uses: actions/checkout@v2
+      with:
+        submodules: true
 
-    - name: Install
+    - name: Install sdcc
       run: |
-        wget http://182.61.61.133/dl/sdcc/sdcc-4.0.0-amd64-unknown-linux2.5.tar.bz2
-        tar -xf sdcc-4.0.0-amd64-unknown-linux2.5.tar.bz2
-        echo `pwd`/sdcc-4.0.0/bin >> $GITHUB_PATH
+        sudo apt update
+        sudo apt install -y sdcc
 
     - name: Build
-      run: make build
       working-directory: tests
+      run: |
+        make ${{ matrix.project }}
