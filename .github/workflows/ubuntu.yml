@@ -1,4 +1,4 @@
-name: ubuntu (4.0.0)
+name: ubuntu
 
 on:
   push:
@@ -23,6 +23,7 @@ jobs:
           - 'tim2'
           - 'delay'
 
+    steps:
     - name: Checkout code
       uses: actions/checkout@v2
       with:
